@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".dashboard.fragment_home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="DASHBOARD"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textAllCaps="true"
+            android:padding="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="152dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:background="#DC000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
+                    android:text="Academic Calander"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="4dp"
+                    android:backgroundTint="#E65100"
+                    android:id="@+id/btn_festive"
+                    android:text="CHECK" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="290dp"
+                android:layout_height="210dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="-80dp"
+                android:layout_marginBottom="-90dp"
+                android:src="@drawable/ac_cal" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="159dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:padding="15dp"
+                    android:text="Time Table"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/btn_tt"
+                    android:backgroundTint="#DC000000"
+                    android:textColor="@color/white"
+                    android:text="CHECK" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="230dp"
+                android:layout_height="206dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-40dp"
+                android:layout_marginRight="-40dp"
+                android:layout_marginBottom="-90dp"
+                android:src="@drawable/time_table" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="161dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:background="#E1000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
+                    android:text="CPI Predictor"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/btn_cpi"
+                    android:backgroundTint="#E65100"
+                    android:text="CHECK" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="189dp"
+                android:layout_height="106dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="-30dp"
+                android:layout_marginBottom="-90dp"
+                android:src="@drawable/predictor" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="256dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:padding="15dp"
+                    android:text="My Schedular "
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/btn_att"
+                    android:backgroundTint="#DC000000"
+                    android:textColor="@color/white"
+                    android:text="CHECK" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-50dp"
+                android:layout_marginRight="-30dp"
+                android:layout_marginBottom="-90dp"
+                android:src="@drawable/att" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

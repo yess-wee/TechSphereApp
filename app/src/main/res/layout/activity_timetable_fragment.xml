@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".dashboard.timetableFragmentActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@color/white"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="130dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="CE-1"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#E65100"
+            android:textStyle="bold"
+            android:id="@+id/one_tt"
+            android:textSize="20sp"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="CE-2"
+            android:textColor="@color/white"
+            android:layout_below="@id/one_tt"
+            android:id="@+id/two_tt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#E65100"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="IT-H"
+            android:textColor="@color/white"
+            android:backgroundTint="#E65100"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/two_tt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:id="@+id/h_tt"
+            android:textSize="20sp"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="IT-I"
+            android:textColor="@color/white"
+            android:layout_below="@id/h_tt"
+            android:id="@+id/i_tt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="#E65100"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="EC-1"
+            android:textColor="@color/white"
+            android:backgroundTint="#E65100"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/i_tt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:id="@+id/econe_tt"
+            android:textSize="20sp"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="IT-I"
+            android:textColor="@color/white"
+            android:layout_below="@id/econe_tt"
+            android:id="@+id/ectwo"
+            android:backgroundTint="#E65100"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="20sp"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

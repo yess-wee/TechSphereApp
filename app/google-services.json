@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226205479321",
+    "project_id": "auth-techsphere",
+    "storage_bucket": "auth-techsphere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226205479321:android:f9159fde488259c733e308",
+        "android_client_info": {
+          "package_name": "com.example.authtechsphere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFxWYyYHdo4kYMUMZQdawd7Esj69XcrBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
