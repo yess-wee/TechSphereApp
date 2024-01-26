@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,14 +23,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
+
+    boolean valid = true;
 
     EditText memail, pwd;
     Button btnLogin;
     TextView createBtn, foregetTxtLink;
 
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
     ProgressBar progressBar;
 
     @Override
@@ -46,55 +53,81 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = memail.getText().toString();
-                String password = pwd.getText().toString();
 
-                if(TextUtils.isEmpty(email)){
-                    memail.setError("Email address is required!");
-                    return;
-                }
+                checkField(memail);
+                checkField(pwd);
 
+                Log.d("TAG","onClick"+memail.getText().toString());
 
-                if(TextUtils.isEmpty(password)){
-                    pwd.setError("Password is required!");
-                    return;
-                }
+                if(valid){
 
-                if(password.length() < 6){
-                    pwd.setError("Password should be more than of six characters!");
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //verification part
-                            FirebaseUser fuser = fAuth.getCurrentUser();
-                            assert fuser != null;
-
-                            if(fuser.isEmailVerified()){
-                                progressBar.setVisibility(View.GONE);
-                                startActivitySecond();
-                                finish();
-
-                            }
-                            else {
-                                Toast.makeText(LoginActivity.this, "Please verify your email!", Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
-                            }
-
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Error Occured!", Toast.LENGTH_SHORT).show();
+                    fAuth.signInWithEmailAndPassword(memail.getText().toString(), pwd.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            Toast.makeText(LoginActivity.this, "Logged in!", Toast.LENGTH_SHORT).show();
+                            checkUserAcessLevel(authResult.getUser().getUid());
                             progressBar.setVisibility(View.GONE);
+
                         }
-                    }
-                });
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+
+//                String email = memail.getText().toString();
+//                String password = pwd.getText().toString();
+//
+//                if(TextUtils.isEmpty(email)){
+//                    memail.setError("Email address is required!");
+//                    return;
+//                }
+//
+//
+//                if(TextUtils.isEmpty(password)){
+//                    pwd.setError("Password is required!");
+//                    return;
+//                }
+//
+//                if(password.length() < 6){
+//                    pwd.setError("Password should be more than of six characters!");
+//                    return;
+//                }
+//                progressBar.setVisibility(View.VISIBLE);
+//
+//                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if(task.isSuccessful()){
+//                            //verification part
+//                            FirebaseUser fuser = fAuth.getCurrentUser();
+//                            assert fuser != null;
+//
+//                            if(fuser.isEmailVerified()){
+//                                progressBar.setVisibility(View.GONE);
+//                                startActivitySecond();
+//                                finish();
+//
+//                            }
+//                            else {
+//                                Toast.makeText(LoginActivity.this, "Please verify your email!", Toast.LENGTH_SHORT).show();
+//                                progressBar.setVisibility(View.GONE);
+//                            }
+//
+//                        }else{
+//                            Toast.makeText(LoginActivity.this, "Error Occured!", Toast.LENGTH_SHORT).show();
+//                            progressBar.setVisibility(View.GONE);
+//                        }
+//                    }
+//                });
             }
         });
 
@@ -152,10 +185,43 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void startActivitySecond(){
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+//    private void startActivitySecond(){
+//        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//    }
+
+    private void checkUserAcessLevel(String uid){
+        DocumentReference df = fStore.collection("Users").document(uid);
+        //exctraction of the data from the doc
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Log.d("TAG","onSuccess: "+ documentSnapshot.getData());
+                //user access level identification
+
+                if(documentSnapshot.getString("isFaculty") != null){
+                    startActivity(new Intent(getApplicationContext(), Admin.class));
+                    finish();
+                }
+
+                if(documentSnapshot.getString("isStudent") != null){
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
+            }
+        });
+    }
+
+    public boolean checkField(EditText textField){
+        if(textField.getText().toString().isEmpty()){
+            textField.setError("Error");
+            valid = false;
+        }else {
+            valid = true;
+        }
+
+        return valid;
     }
 
 }

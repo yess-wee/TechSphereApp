@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -39,7 +41,9 @@ public class RegistrationActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     FirebaseFirestore fstore;
-    String userID;
+    //String userID;
+
+    CheckBox isFacultyBox, isStudentBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,30 @@ public class RegistrationActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
 
+
+        isFacultyBox = findViewById(R.id.isTeacher);
+        isStudentBox = findViewById(R.id.isStudent);
+
+        //check box checking logic
+        isStudentBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    isFacultyBox.setChecked(false);
+                }
+            }
+        });
+
+        isFacultyBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    isStudentBox.setChecked(false);
+                }
+            }
+        });
+
+
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +92,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = pwd.getText().toString();
                 String fullname = fulln.getText().toString();
                 String confirmpwd = cpwd.getText().toString();
+
+
+                if(!(isFacultyBox.isChecked() || isStudentBox.isChecked())){
+                    Toast.makeText(RegistrationActivity.this, "Select login type", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
 
                 if(TextUtils.isEmpty(fullname)){
                     fulln.setError("Full name is required!");
@@ -117,16 +152,25 @@ public class RegistrationActivity extends AppCompatActivity {
                             });
 
 //                            //made string userID--------------------------------
-                            userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document(userID);
+                           // userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference df = fstore.collection("Users").document(fuser.getUid());
                             Map<String, Object> user = new HashMap<>();
                             user.put("fname",fullname);
                             user.put("email",email);
 
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void avoid) {
-                                    Log.d(TAG, "onSuccess: Profile created for"+ userID);
+                                    if(isFacultyBox.isChecked()){
+                                        user.put("isFaculty","1");
+                                    }
+
+                                    if(isStudentBox.isChecked()){
+                                        user.put("isStudent","1");
+                                    }
+
+                                    df.set(user);
+                                    Log.d(TAG, "onSuccess: Profile created for"+ fuser.getUid());
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

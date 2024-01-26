@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="726dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/background"
             android:orientation="vertical">
 
@@ -119,7 +119,6 @@
 
             <ProgressBar
                 android:id="@+id/progressBar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/registerBtn"
@@ -129,6 +128,30 @@
                 android:indeterminate="true"
                 android:indeterminateTint="#FF0000"
                 android:visibility="gone" />
+
+            <CheckBox
+                android:id="@+id/isTeacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="28dp"
+                android:text="Register As Faculty"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPass" />
+
+
+            <CheckBox
+                android:id="@+id/isStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Register as Student"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/isTeacher"
+                app:layout_constraintStart_toEndOf="@+id/isTeacher"
+                app:layout_constraintTop_toBottomOf="@+id/confirmPass" />
 
             <Button
                 android:id="@+id/registerBtn"
