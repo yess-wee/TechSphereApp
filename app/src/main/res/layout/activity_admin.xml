@@ -112,6 +112,7 @@
                     android:fontFamily="sans-serif-condensed-medium"
                     android:padding="15dp"
                     android:text="Result"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <Button
@@ -208,6 +209,7 @@
                     android:fontFamily="sans-serif-condensed-medium"
                     android:padding="15dp"
                     android:text="DocLocker"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <Button
@@ -217,7 +219,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="14dp"
                     android:layout_marginBottom="4dp"
-                    android:id="@+id/btn_doclo"
+                    android:id="@+id/btn_doc_locker"
                     android:backgroundTint="#DC000000"
                     android:textColor="@color/white"
                     android:text="CHECK" />
@@ -302,6 +304,7 @@
                     android:fontFamily="sans-serif-condensed-medium"
                     android:padding="15dp"
                     android:text="Time-Table"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <Button
