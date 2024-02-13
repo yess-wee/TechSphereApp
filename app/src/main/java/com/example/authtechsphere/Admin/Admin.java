@@ -81,7 +81,7 @@ public class Admin extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Access Verified!", Toast.LENGTH_SHORT).show();
                 btn_doc_locker.setText("Access Verified!");
 
-                Intent i = new Intent(Admin.this, DocLocker.class);
+                Intent i = new Intent(Admin.this, CategoryAddActivity.class);
                 startActivity(i);
             }
             @Override
