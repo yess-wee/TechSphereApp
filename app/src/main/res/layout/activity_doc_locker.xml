@@ -1,9 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".Admin.DocLocker">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back"
+        android:background="@drawable/backbtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backIB"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/attach"
+        android:background="@drawable/backbtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/backIB"
+        android:id="@+id/attachIB"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/white"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Doc-Locker"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"/>
+
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:src="@drawable/pdf"
+            android:layout_gravity="center"
+            android:id="@+id/iconIv"/>
+
+        <EditText
+            android:id="@+id/edtbookn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:hint="pdf name"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/edtbookdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:hint="pdf description"
+            android:inputType="text"/>
+
+
+        <EditText
+            android:id="@+id/edtcategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableEnd="@drawable/drop"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:hint="Category"
+            android:inputType="text"/>
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:id="@+id/btnupload"
+            android:textColor="@color/white"
+            android:backgroundTint="#E65100"
+            android:textStyle="bold"
+            android:onClick="saveEventAction"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
