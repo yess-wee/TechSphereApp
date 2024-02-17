@@ -48,6 +48,7 @@
                 android:layout_marginRight="35dp"
                 android:background="@drawable/forget"
                 android:hint="Enter the Email"
+                android:textColor="@color/black"
                 android:inputType="textEmailAddress" />
 
             <TextView
@@ -69,6 +70,7 @@
                 android:layout_marginRight="35dp"
                 android:background="@drawable/forget"
                 android:hint="Enter the Password"
+                android:textColor="@color/black"
                 android:inputType="textPassword" />
 
             <TextView
