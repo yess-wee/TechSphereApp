@@ -33,7 +33,7 @@ import java.util.Map;
 public class RegistrationActivity extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText fulln, memail, pwd, cpwd;
+    EditText fulln, memail, pwd, cpwd, et_phone;
     Button btnregister;
     TextView btnlogin;
 
@@ -57,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
         btnregister = findViewById(R.id.registerBtn);
         btnlogin = findViewById(R.id.createText);
         progressBar = findViewById(R.id.progressBar);
+        et_phone = findViewById(R.id.et_phone);
 
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -91,6 +92,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 String email = memail.getText().toString();
                 String password = pwd.getText().toString();
                 String fullname = fulln.getText().toString();
+                String phone = et_phone.getText().toString();
+                String phno = et_phone.getText().toString();
                 String confirmpwd = cpwd.getText().toString();
 
 
@@ -116,6 +119,11 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(phno.isEmpty() || !password.equals(confirmpwd)){
+                    cpwd.setError("Please confirm entered password!");
+                    return;
+                }
+
                 if(password.length() < 6){
                     pwd.setError("Password should be more than of six characters!");
                     return;
@@ -123,6 +131,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if(confirmpwd.isEmpty() || !password.equals(confirmpwd)){
                     cpwd.setError("Please confirm entered password!");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(phone)){
+                    pwd.setError("Phone number is required!");
                     return;
                 }
 
@@ -157,6 +170,8 @@ public class RegistrationActivity extends AppCompatActivity {
                             Map<String, Object> user = new HashMap<>();
                             user.put("fname",fullname);
                             user.put("email",email);
+                            user.put("phone no",phone);
+                            user.put("pwd",password);
 
                             df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
