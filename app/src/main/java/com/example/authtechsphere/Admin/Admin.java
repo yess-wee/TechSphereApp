@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import com.example.authtechsphere.LoginActivity;
 import com.example.authtechsphere.MainActivity;
 import com.example.authtechsphere.R;
@@ -22,7 +23,7 @@ import java.util.concurrent.Executor;
 
 public class Admin extends AppCompatActivity {
 
-    Button btnLogout,btn_doc_locker;
+    Button btnLogout,btn_doc_locker,btn_doc_share;
 
     FirebaseAuth fAuth;
 
@@ -34,7 +35,15 @@ public class Admin extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btn_logout);
         btn_doc_locker = findViewById(R.id.btn_doc_locker);
+        btn_doc_share = findViewById(R.id.btn_docsh);
 
+        btn_doc_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),DocShare.class);
+                startActivity(i);
+            }
+        });
 
         // creating a variable for our BiometricManager
         // and lets check if our user can use biometric sensor or not

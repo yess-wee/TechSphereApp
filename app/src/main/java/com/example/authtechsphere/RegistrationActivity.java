@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,7 +34,18 @@ import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+
+    public static final String RIDER_USERS = "Users";
+    public static final String DEFAULT_IMAGE = "default";
+    public static final String FILE_SHARED = "fileShared";
+    public static final String FILE_RECEIVED = "fileReceived";
+
+
     public static final String TAG = "TAG";
+
+    DatabaseReference reference;
+
+
     EditText fulln, memail, pwd, cpwd, et_phone;
     Button btnregister;
     TextView btnlogin;
@@ -95,6 +108,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 String phone = et_phone.getText().toString();
                 String phno = et_phone.getText().toString();
                 String confirmpwd = cpwd.getText().toString();
+
+                FirebaseUser firebaseUser = fAuth.getCurrentUser();
+                String userId = firebaseUser.getUid();
 
 
                 if(!(isFacultyBox.isChecked() || isStudentBox.isChecked())){
@@ -164,15 +180,55 @@ public class RegistrationActivity extends AppCompatActivity {
                                 }
                             });
 
+                            reference = FirebaseDatabase.getInstance().getReference().child(RegistrationActivity.RIDER_USERS).child(fullname);
+                            HashMap<String, String> hashMap = new HashMap<>();
+                            hashMap.put("uid",userId);
+                            hashMap.put("username", fullname);
+                            hashMap.put("email", email);
+                            hashMap.put("image", DEFAULT_IMAGE);
+                            hashMap.put("phone", phone);
+                            hashMap.put("password", password);
+
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+
+                                        sendUserToMainActivity(fullname);
+                                    }
+                                }
+                            });
+                            reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    if (isFacultyBox.isChecked()) {
+                                        hashMap.put("isFaculty", "1");
+                                    }
+
+                                    if (isStudentBox.isChecked()) {
+                                        hashMap.put("isStudent", "1");
+                                    }
+
+                                    reference.setValue(hashMap); // Overwrite the data with the updated user object
+                                    Log.d(TAG, "onSuccess: Profile created for " + fuser.getUid());
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailure: "+ e.toString());
+                                }
+                            });
+
+
+
 //                            //made string userID--------------------------------
-                           // userID = fAuth.getCurrentUser().getUid();
+                            //userID = fAuth.getCurrentUser().getUid();
                             DocumentReference df = fstore.collection("Users").document(fuser.getUid());
                             Map<String, Object> user = new HashMap<>();
                             user.put("fname",fullname);
                             user.put("email",email);
                             user.put("phone no",phone);
                             user.put("pwd",password);
-
                             df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void avoid) {
@@ -193,6 +249,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                     Log.d(TAG, "onFailure: "+ e.toString());
                                 }
                             });
+
+
 
                         }else{
                             Toast.makeText(RegistrationActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -216,4 +274,12 @@ public class RegistrationActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+    private void sendUserToMainActivity(String username) {
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+        intent.putExtra("username", username);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 }
