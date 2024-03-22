@@ -1,4 +1,4 @@
-package com.example.authtechsphere.Admin;
+package com.example.authtechsphere;
 
 import java.io.File;
 import java.io.FileInputStream;

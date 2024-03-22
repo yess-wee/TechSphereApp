@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.authtechsphere.Admin.ShareFile;
 import com.example.authtechsphere.R;
+import com.example.authtechsphere.ShareFile;
 import com.example.authtechsphere.model.FileShared;
 
 
@@ -27,7 +27,6 @@ public class ShowFileSharedAdapter extends RecyclerView.Adapter<ShowFileSharedAd
         this.fileSharedList = fileSharedList;
         this.context = context;
     }
-
 
 
     @NonNull

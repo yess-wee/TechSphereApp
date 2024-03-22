@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "627414438905",
+    "firebase_url": "https://sdp-techsphere-default-rtdb.firebaseio.com",
     "project_id": "sdp-techsphere",
     "storage_bucket": "sdp-techsphere.appspot.com"
   },

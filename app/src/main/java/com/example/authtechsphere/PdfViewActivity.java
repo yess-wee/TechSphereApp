@@ -1,4 +1,4 @@
-package com.example.authtechsphere.Admin;
+package com.example.authtechsphere;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.authtechsphere.R;
 import com.github.barteksc.pdfviewer.PDFView;
-
 
 public class PdfViewActivity extends AppCompatActivity {
 
@@ -25,7 +23,7 @@ public class PdfViewActivity extends AppCompatActivity {
         String fileUri = intent.getStringExtra("uri");
         String fileName = intent.getStringExtra("name");
 
-       pdfView = findViewById(R.id.pdfView);
+        pdfView = findViewById(R.id.pdfView);
         tv_filename = findViewById(R.id.tv_fileName);
 
         tv_filename.setText(fileName);

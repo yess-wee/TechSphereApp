@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.authtechsphere.Admin.ShowAllReceivedFiles;
 import com.example.authtechsphere.R;
+import com.example.authtechsphere.ShowAllReceivedFiles;
 import com.example.authtechsphere.model.FileShared;
 
 
@@ -28,6 +28,7 @@ public class ShowFileReceivedAdapter extends RecyclerView.Adapter<ShowFileReceiv
         this.context = context;
         this.fileSharedList = fileSharedList;
     }
+
 
 
     @NonNull

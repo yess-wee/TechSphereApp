@@ -40,7 +40,7 @@ public class Admin extends AppCompatActivity {
         btn_doc_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),DocShare.class);
+                Intent i = new Intent(getApplicationContext(), DocShare.class);
                 startActivity(i);
             }
         });

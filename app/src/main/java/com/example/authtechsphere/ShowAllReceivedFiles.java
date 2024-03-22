@@ -1,4 +1,4 @@
-package com.example.authtechsphere.Admin;
+package com.example.authtechsphere;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.example.authtechsphere.R;
-import com.example.authtechsphere.RegistrationActivity;
 import com.example.authtechsphere.adapter.ShowFileReceivedAdapter;
 import com.example.authtechsphere.model.FileShared;
 import com.google.firebase.auth.FirebaseAuth;

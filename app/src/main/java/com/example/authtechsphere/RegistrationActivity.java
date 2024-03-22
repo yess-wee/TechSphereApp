@@ -110,7 +110,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String confirmpwd = cpwd.getText().toString();
 
                 FirebaseUser firebaseUser = fAuth.getCurrentUser();
-                String userId = firebaseUser.getUid();
+//                String userId = firebaseUser.getUid();
 
 
                 if(!(isFacultyBox.isChecked() || isStudentBox.isChecked())){
@@ -160,101 +160,105 @@ public class RegistrationActivity extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(RegistrationActivity.this, "User Created!", Toast.LENGTH_SHORT).show();
-                            startActivitySecond();
+                        if (task.isSuccessful()) {
 
-                            //verification part
+                            FirebaseUser firebaseUser = fAuth.getCurrentUser();
+                            if (firebaseUser != null) {
+                                String userId = firebaseUser.getUid();
 
-                            FirebaseUser fuser = fAuth.getCurrentUser();
-                            fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(RegistrationActivity.this, "Verification Email has been sent!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrationActivity.this, "User Created!", Toast.LENGTH_SHORT).show();
+                                startActivitySecond();
 
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: Email not sent!"+ e.getMessage());
-                                }
-                            });
+                                //verification part
 
-                            reference = FirebaseDatabase.getInstance().getReference().child(RegistrationActivity.RIDER_USERS).child(fullname);
-                            HashMap<String, String> hashMap = new HashMap<>();
-                            hashMap.put("uid",userId);
-                            hashMap.put("username", fullname);
-                            hashMap.put("email", email);
-                            hashMap.put("image", DEFAULT_IMAGE);
-                            hashMap.put("phone", phone);
-                            hashMap.put("password", password);
+                                FirebaseUser fuser = fAuth.getCurrentUser();
+                                fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(RegistrationActivity.this, "Verification Email has been sent!", Toast.LENGTH_SHORT).show();
 
-                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-
-                                        sendUserToMainActivity(fullname);
                                     }
-                                }
-                            });
-                            reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    if (isFacultyBox.isChecked()) {
-                                        hashMap.put("isFaculty", "1");
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailure: Email not sent!" + e.getMessage());
                                     }
+                                });
 
-                                    if (isStudentBox.isChecked()) {
-                                        hashMap.put("isStudent", "1");
+                                reference = FirebaseDatabase.getInstance().getReference().child(RegistrationActivity.RIDER_USERS).child(fullname);
+                                HashMap<String, String> hashMap = new HashMap<>();
+                                hashMap.put("uid", userId);
+                                hashMap.put("username", fullname);
+                                hashMap.put("email", email);
+                                hashMap.put("image", DEFAULT_IMAGE);
+                                hashMap.put("phone", phone);
+                                hashMap.put("password", password);
+
+                                reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+
+                                            sendUserToMainActivity(fullname);
+                                        }
                                     }
+                                });
+                                reference.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        if (isFacultyBox.isChecked()) {
+                                            hashMap.put("isFaculty", "1");
+                                        }
 
-                                    reference.setValue(hashMap); // Overwrite the data with the updated user object
-                                    Log.d(TAG, "onSuccess: Profile created for " + fuser.getUid());
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: "+ e.toString());
-                                }
-                            });
+                                        if (isStudentBox.isChecked()) {
+                                            hashMap.put("isStudent", "1");
+                                        }
 
+                                        reference.setValue(hashMap); // Overwrite the data with the updated user object
+                                        Log.d(TAG, "onSuccess: Profile created for " + fuser.getUid());
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailure: " + e.toString());
+                                    }
+                                });
 
 
 //                            //made string userID--------------------------------
-                            //userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference df = fstore.collection("Users").document(fuser.getUid());
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("fname",fullname);
-                            user.put("email",email);
-                            user.put("phone no",phone);
-                            user.put("pwd",password);
-                            df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void avoid) {
-                                    if(isFacultyBox.isChecked()){
-                                        user.put("isFaculty","1");
+                                //userID = fAuth.getCurrentUser().getUid();
+                                DocumentReference df = fstore.collection("Users").document(fuser.getUid());
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("fname", fullname);
+                                user.put("email", email);
+                                user.put("phone no", phone);
+                                user.put("pwd", password);
+                                df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void avoid) {
+                                        if (isFacultyBox.isChecked()) {
+                                            user.put("isFaculty", "1");
+                                        }
+
+                                        if (isStudentBox.isChecked()) {
+                                            user.put("isStudent", "1");
+                                        }
+
+                                        df.set(user);
+                                        Log.d(TAG, "onSuccess: Profile created for" + fuser.getUid());
                                     }
-
-                                    if(isStudentBox.isChecked()){
-                                        user.put("isStudent","1");
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailure: " + e.toString());
                                     }
-
-                                    df.set(user);
-                                    Log.d(TAG, "onSuccess: Profile created for"+ fuser.getUid());
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: "+ e.toString());
-                                }
-                            });
+                                });
 
 
-
-                        }else{
-                            Toast.makeText(RegistrationActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                            } else {
+                                Toast.makeText(RegistrationActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
                         }
                     }
                 });

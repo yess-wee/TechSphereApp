@@ -1,4 +1,4 @@
-package com.example.authtechsphere.Admin;
+package com.example.authtechsphere;
 
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
@@ -21,8 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.authtechsphere.R;
-import com.example.authtechsphere.RegistrationActivity;
+
 import com.example.authtechsphere.adapter.ShowFileSharedAdapter;
 import com.example.authtechsphere.model.FileShared;
 import com.google.android.gms.tasks.Continuation;
@@ -218,7 +217,7 @@ public class ShareFile extends AppCompatActivity {
 //    }
 private void sendSMS(String number, String msg) {
     try {
-        Intent intent = new Intent(getApplicationContext(), DocShare.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         SmsManager sms = null;

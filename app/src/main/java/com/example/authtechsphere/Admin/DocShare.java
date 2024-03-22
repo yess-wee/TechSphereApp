@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.authtechsphere.MainActivity;
+import com.example.authtechsphere.MyEncryptionClass;
 import com.example.authtechsphere.R;
 import com.example.authtechsphere.RegistrationActivity;
+import com.example.authtechsphere.ShowAllReceivedFiles;
 import com.example.authtechsphere.adapter.ShowUserAdapter;
 import com.example.authtechsphere.model.FileShared;
 import com.example.authtechsphere.model.UserModel;
@@ -42,9 +42,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DocShare extends AppCompatActivity {
 
-    public static final String TAG = "TAG";
-
-
     public String username = "";
     List<UserModel> userModelList = new ArrayList<>();
     RecyclerView rv_showAllUsers;
@@ -56,6 +53,7 @@ public class DocShare extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_share);
+
 
         cv_fileReceived = findViewById(R.id.cv_fileReceived);
         cv_showAllReceivedFiles = findViewById(R.id.cv_showAllReceivedFiles);
@@ -185,16 +183,10 @@ public class DocShare extends AppCompatActivity {
                     userModelList.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         UserModel model = dataSnapshot.getValue(UserModel.class);
-                        if (model != null) { // Check if model is not null
-                            if (!TextUtils.isEmpty(model.getId()) && !model.getId().equals(firebaseUser.getUid())) {
-                                userModelList.add(model);
-                                Log.d(TAG, "added model------- ");
-                            } else {
-                                username = model.getUsername();
-                                Log.d(TAG, "not added model------- "+username);
-                            }
-
-                            Log.d(TAG, "null model------- ");
+                        if (!model.getId().equals(firebaseUser.getUid())) {
+                            userModelList.add(model);
+                        } else {
+                            username = model.getUsername();
                         }
                     }
                     adapter = new ShowUserAdapter(DocShare.this, userModelList, username);
@@ -203,7 +195,7 @@ public class DocShare extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(DocShare.this, ""+error, Toast.LENGTH_SHORT).show();
+
                 }
             });
         }

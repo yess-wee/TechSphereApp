@@ -1,17 +1,9 @@
 package com.example.authtechsphere.model;
 
 public class UserModel {
-    String email, uid, username, image, phone, pwd, isFaculty;
 
-    public UserModel(String email, String id, String username, String image, String phone, String pwd,String isFaculty) {
-        this.email = email;
-        this.uid = id;
-        this.username = username;
-        this.image = image;
-        this.phone = phone;
-        this.pwd = pwd;
-        this.isFaculty = isFaculty;
-    }
+
+    String email, uid, username, image, phone, password, isFaculty;
 
     public String getUid() {
         return uid;
@@ -21,12 +13,12 @@ public class UserModel {
         this.uid = uid;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getIsFaculty() {
@@ -36,6 +28,17 @@ public class UserModel {
     public void setIsFaculty(String isFaculty) {
         this.isFaculty = isFaculty;
     }
+
+    public UserModel(String email, String uid, String username, String image, String phone, String password, String isFaculty) {
+        this.email = email;
+        this.uid = uid;
+        this.username = username;
+        this.image = image;
+        this.phone = phone;
+        this.password = password;
+        this.isFaculty = isFaculty;
+    }
+
 
     public UserModel() {
     }
