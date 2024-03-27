@@ -45,154 +45,16 @@
         </LinearLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:id="@+id/b1">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="#DC000000">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:textColor="@color/white"
-                    android:text="Attendance"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:backgroundTint="#E65100"
-                    android:id="@+id/btn_att"
-                    android:text="CHECK" />
 
 
-            </RelativeLayout>
 
 
-            <ImageView
-                android:layout_width="290dp"
-                android:layout_height="210dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="-80dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/ac_cal" />
-        </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:id="@+id/b2">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="@color/orange">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:text="Result"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/btn_result"
-                    android:backgroundTint="#DC000000"
-                    android:textColor="@color/white"
-                    android:text="CHECK" />
-
-
-            </RelativeLayout>
-
-
-            <ImageView
-                android:layout_width="230dp"
-                android:layout_height="206dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-40dp"
-                android:layout_marginRight="-40dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/time_table" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:id="@+id/b3">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="#E1000000">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:textColor="@color/white"
-                    android:text="Announcement"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/btn_ann"
-                    android:backgroundTint="#E65100"
-                    android:text="CHECK" />
-
-
-            </RelativeLayout>
-
-
-            <ImageView
-                android:layout_width="189dp"
-                android:layout_height="106dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="-30dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/predictor" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_marginTop="130dp"
             android:id="@+id/b4">
 
             <RelativeLayout
@@ -241,6 +103,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/b5">
 
             <RelativeLayout
@@ -285,53 +148,6 @@
                 android:src="@drawable/ac_cal" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:id="@+id/b6">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="@color/orange">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:text="Time-Table"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:id="@+id/btn_tt"
-                    android:backgroundTint="#DC000000"
-                    android:textColor="@color/white"
-                    android:text="CHECK" />
-
-
-            </RelativeLayout>
-
-
-            <ImageView
-                android:layout_width="230dp"
-                android:layout_height="206dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-40dp"
-                android:layout_marginRight="-40dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/time_table" />
-        </RelativeLayout>
 
 
 
