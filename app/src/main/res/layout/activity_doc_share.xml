@@ -17,7 +17,7 @@
             android:id="@+id/tv_restAppBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DataFlair Dashboard"
+            android:text="File Share"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
