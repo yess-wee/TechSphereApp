@@ -33,6 +33,7 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+
         btnLogout = findViewById(R.id.btn_logout);
         btn_doc_locker = findViewById(R.id.btn_doc_locker);
         btn_doc_share = findViewById(R.id.btn_docsh);
@@ -106,6 +107,8 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 biometricPrompt.authenticate(promptInfo);
+                Intent i = new Intent(getApplicationContext(),DocLock.class);
+                startActivity(i);
 
             }
         });
