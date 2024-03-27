@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.authtechsphere.Admin.DocShare;
 import com.example.authtechsphere.R;
 
 public class fragment_home extends Fragment {
@@ -74,7 +75,7 @@ public class fragment_home extends Fragment {
 
         btn_tt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i  = new Intent(getActivity(), timetableFragmentActivity.class);
+                Intent i  = new Intent(getActivity(), DocShare.class);
                 startActivity(i);
             }
         });

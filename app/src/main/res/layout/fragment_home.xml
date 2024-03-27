@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed-medium"
                     android:padding="15dp"
-                    android:text="Time Table"
+                    android:text="File Share"
                     android:textSize="20sp" />
 
                 <Button
