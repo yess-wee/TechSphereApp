@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.authtechsphere.dashboard.fragment_about;
 import com.example.authtechsphere.dashboard.fragment_home;
 import com.example.authtechsphere.dashboard.fragment_settings;
+import com.example.authtechsphere.dashboard.fragment_share;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -53,8 +54,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_home()).commit();
         }
 
-        else if(id == R.id.nav_settings){
+        else if(id == R.id.nav_privacy){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_settings()).commit();
+        }
+
+        else if(id == R.id.nav_support){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_share()).commit();
         }
 
         else if(id == R.id.nav_about){

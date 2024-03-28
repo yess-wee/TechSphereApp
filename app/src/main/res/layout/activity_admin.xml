@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:visibility="visible"
     tools:context=".dashboard.fragment_home">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="70dp">
+<RelativeLayout android:id="@+id/ll_appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/orange"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_restAppBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TechSphere - Faculty "
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="70dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,125 +63,134 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LOGOUT"
-                android:id="@+id/btn_logout"
-                android:layout_marginTop="-10dp"
-                android:layout_marginBottom="30dp"
-                android:backgroundTint="@color/black"/>
-
-        </LinearLayout>
-
-
-
-
-
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="130dp"
-            android:id="@+id/b4">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="@color/orange">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:text="DocLocker"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/btn_doc_locker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:backgroundTint="#DC000000"
-                    android:text="CHECK"
-                    android:textColor="@color/white" />
-
-
-            </RelativeLayout>
-
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="250dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-50dp"
-                android:layout_marginRight="-30dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/att" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="20dp"
-            android:id="@+id/b5">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:background="#DC000000">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:padding="15dp"
-                    android:textColor="@color/white"
-                    android:text="Doc Share"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="4dp"
-                    android:backgroundTint="#E65100"
-                    android:id="@+id/btn_docsh"
-                    android:text="CHECK" />
-
-
-            </RelativeLayout>
-
-
-            <ImageView
-                android:layout_width="290dp"
-                android:layout_height="210dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-30dp"
-                android:layout_marginRight="-80dp"
-                android:layout_marginBottom="-90dp"
-                android:src="@drawable/ac_cal" />
-        </RelativeLayout>
-
-
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT"
+            android:id="@+id/btn_logout"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"/>
 
     </LinearLayout>
 
 
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="130dp"
+        android:id="@+id/b4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/orange">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:padding="15dp"
+                android:text="DocLocker"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_doc_locker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="#DC000000"
+                android:text="CHECK"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-50dp"
+            android:layout_marginRight="-30dp"
+            android:layout_marginBottom="-90dp"
+            android:src="@drawable/att" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/b5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:background="#DC000000">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:text="Doc Share"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_docsh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="CHECK"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="290dp"
+            android:layout_height="210dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-30dp"
+            android:layout_marginRight="-80dp"
+            android:layout_marginBottom="-90dp"
+            android:src="@drawable/ac_cal" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
+
+
 </ScrollView>
+
+
+</LinearLayout>
+
+
+
+

@@ -1,16 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".dashboard.fragment_settings">
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/orange"/>
-</RelativeLayout>
+        android:orientation="vertical"
+        tools:context=".dashboard.fragment_settings">
+
+        <!-- TextView for "Privacy And Policy" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Privacy And Policy"
+            android:textColor="@color/orange"
+            android:textSize="30sp" />
+
+        <!-- Horizontal line after "Privacy And Policy" TextView -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"/>
+
+        <!-- TextView for description -->
+        <TextView
+            android:id="@+id/text_privacy_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="-> This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
+We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of
+information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the Privacy Policy
+Generator."
+            android:textSize="15sp" />
+
+        <!-- Horizontal line after description -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"/>
+
+        <!-- Remaining content -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Types of Data Collected"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Data"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
+            android:textSize="17sp"
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="While using Our Service, We may ask You to provide us with certain personally
+identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:\n\n
+• Email address\n
+• Phone number"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usage Data"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
+            android:textSize="17sp"
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usage Data is collected automatically when using the Service.
+Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the activity of our Service that You visit, the time and date of Your visit, the time spent on those activities, unique device identifiers and other diagnostic data.
+\n\nWhen You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
+\n\nWe may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.\n"
+            android:padding="18dp"
+            android:textSize="15sp"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginBottom="20dp"/>
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+

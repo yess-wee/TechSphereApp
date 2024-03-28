@@ -73,7 +73,7 @@ public class ShowUserAdapter extends RecyclerView.Adapter<ShowUserAdapter.viewho
 
     class viewholder extends RecyclerView.ViewHolder {
 
-        Button btn_shareFile;
+        TextView btn_shareFile;
         TextView tv_username;
         CircleImageView cv_profileImage;
 

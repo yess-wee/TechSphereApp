@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.authtechsphere.MyEncryptionClass;
@@ -89,7 +90,7 @@ public class DocShare extends AppCompatActivity {
 
         File file = null;
 
-        Button btn_receive = customLayout.findViewById(R.id.btn_receive);
+        TextView btn_receive = customLayout.findViewById(R.id.btn_receive);
 
         builder.setView(customLayout);
         AlertDialog alertDialog = builder.create();

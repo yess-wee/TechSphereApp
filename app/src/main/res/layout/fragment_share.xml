@@ -1,16 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".dashboard.fragment_share">
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/orange"/>
-</RelativeLayout>
+        android:orientation="vertical"
+        tools:context=".dashboard.fragment_settings">
+
+        <!-- TextView for "Privacy And Policy" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Support"
+            android:textColor="@color/orange"
+            android:textSize="30sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="269dp"
+            android:padding="18dp"
+            android:text="In times of uncertainty or if you have any queries regarding our application, we extend our warmest invitation for you to connect with us. Your input serves as the cornerstone of our continuous improvement efforts, guiding us towards providing a seamless and enriching experience for all our users. Our dedicated support team is readily available to address any concerns or challenges you may encounter along your journey. Please don't hesitate to reach out to us via email at\n"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_email_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="yashvichauhan83@gmail.com"
+            android:autoLink="email"
+            android:clickable="true"
+            android:paddingLeft="18dp"
+            android:paddingBottom="18dp"
+            android:textSize="18sp"
+            android:textColorLink="@color/orange"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="183dp"
+            android:padding="18dp"
+            android:text="Your trust and collaboration are integral to our shared success, and we are deeply grateful for your ongoing support. Together, we can navigate through any obstacles and ensure that your experience with our application exceeds your expectations."
+            android:textSize="18sp" />
+
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+

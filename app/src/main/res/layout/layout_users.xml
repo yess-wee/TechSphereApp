@@ -48,16 +48,17 @@
 
             </LinearLayout>
 
-            <Button
+            <TextView
                 android:id="@+id/btn_shareFile"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
-                android:background="@drawable/background_right"
+                android:background="@color/orange"
                 android:text="Share File"
                 android:textAlignment="center"
+                android:gravity="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:backgroundTint="#E65100"
