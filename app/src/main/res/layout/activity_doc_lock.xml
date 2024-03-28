@@ -59,27 +59,37 @@
         android:orientation="horizontal"
         android:weightSum="1">
 
-        <Button
+        <TextView
             android:id="@+id/buttonChoose"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/fileNameToBeSaved"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="30dp"
             android:layout_weight="0.5"
-            android:background="@drawable/btn"
-            android:text="Choose" />
+            android:background="@color/orange"
+            android:backgroundTint="@color/orange"
+            android:text="Choose"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:gravity="center"/>
 
-        <Button
+        <TextView
             android:id="@+id/buttonUpload"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/buttonChoose"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="30dp"
             android:layout_weight="0.5"
-            android:background="@drawable/btn"
-            android:text="Upload" />
+            android:background="@color/orange"
+            android:backgroundTint="@color/orange"
+            android:text="Upload"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:gravity="center"/>
 
     </LinearLayout>
 
@@ -90,7 +100,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn"
+        android:background="@color/orange"
         android:gravity="center"
         android:onClick="showUploads"
         android:text="View Uploaded Files"

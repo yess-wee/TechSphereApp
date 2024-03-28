@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.authtechsphere.LoginActivity;
@@ -45,8 +46,8 @@ public class DocLock extends AppCompatActivity implements View.OnClickListener {
     private static final int PICK_IMAGE_REQUEST = 234;
 
     // Creating variables for the buttons and imageview
-    private Button buttonChoose;
-    private Button buttonUpload;
+    private TextView buttonChoose;
+    private TextView buttonUpload;
     private ImageView imageView;
 
     // Creating a variable for the Uri and cardview
@@ -64,8 +65,8 @@ public class DocLock extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_lock);
         // Assigning the variables to the respective views
-        buttonChoose = (Button) findViewById(R.id.buttonChoose);
-        buttonUpload = (Button) findViewById(R.id.buttonUpload);
+        buttonChoose = (TextView) findViewById(R.id.buttonChoose);
+        buttonUpload = (TextView) findViewById(R.id.buttonUpload);
         cardView = (CardView) findViewById(R.id.cardView);
         imageView = (ImageView) findViewById(R.id.imageView);
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/black"
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".Admin.DownloadFiles">
@@ -24,7 +24,6 @@
         android:layout_marginBottom="20dp"
         android:background="@color/orange"
         android:elevation="30dp"
-        android:shadowColor="@color/white"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="10"
@@ -33,7 +32,7 @@
         android:gravity="center"
         android:text="Back"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp" />
 
 </RelativeLayout>

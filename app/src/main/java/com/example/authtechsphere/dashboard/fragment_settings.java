@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.authtechsphere.R;
@@ -15,6 +17,14 @@ import com.example.authtechsphere.R;
  * create an instance of this fragment.
  */
 public class fragment_settings extends Fragment {
+
+
+
+
+    protected View view;
+    private LinearLayout layout_green, layout_purple;
+    private SwitchCompat switch_dark;
+    private boolean isDarkTheme;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
