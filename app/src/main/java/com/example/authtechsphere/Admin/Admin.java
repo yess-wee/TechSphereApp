@@ -46,32 +46,34 @@ public class Admin extends AppCompatActivity {
             }
         });
 
-        // creating a variable for our BiometricManager
-        // and lets check if our user can use biometric sensor or not
         BiometricManager biometricManager = androidx.biometric.BiometricManager.from(this);
         switch (biometricManager.canAuthenticate()) {
 
             // this means we can use biometric sensor
             case BiometricManager.BIOMETRIC_SUCCESS:
-              //  msgtex.setText("You can use the fingerprint sensor to login");
+               // msgtex.setText("You can use the fingerprint sensor to login");
                // msgtex.setTextColor(Color.parseColor("#fafafa"));
+               // Toast.makeText(this, "use the fingerprint sensor for access", Toast.LENGTH_SHORT).show();
                 break;
 
             // this means that the device doesn't have fingerprint sensor
             case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-                //msgtex.setText("This device doesnot have a fingerprint sensor");
+               // msgtex.setText("This device doesnot have a fingerprint sensor");
+                Toast.makeText(this, "This device doesnot have a fingerprint sensor", Toast.LENGTH_SHORT).show();
                 btn_doc_locker.setVisibility(View.GONE);
                 break;
 
             // this means that biometric sensor is not available
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-               // msgtex.setText("The biometric sensor is currently unavailable");
+                //msgtex.setText("The biometric sensor is currently unavailable");
+                Toast.makeText(this, "The biometric sensor is currently unavailable", Toast.LENGTH_SHORT).show();
                 btn_doc_locker.setVisibility(View.GONE);
                 break;
 
             // this means that the device doesn't contain your fingerprint
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
-               // msgtex.setText("Your device doesn't have fingerprint saved,please check your security settings");
+                //msgtex.setText("Your device doesn't have fingerprint saved,please check your security settings");
+                Toast.makeText(this, "Your device doesn't have fingerprint saved,please check your security settings", Toast.LENGTH_SHORT).show();
                 btn_doc_locker.setVisibility(View.GONE);
                 break;
         }
@@ -88,11 +90,10 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                Toast.makeText(getApplicationContext(), "Access Verified!", Toast.LENGTH_SHORT).show();
-                btn_doc_locker.setText("Access Verified!");
-
-
-
+                Toast.makeText(getApplicationContext(), "Access!", Toast.LENGTH_SHORT).show();
+                btn_doc_locker.setText("CHECK");
+                Intent i = new Intent(getApplicationContext(), DocLock.class);
+                startActivity(i);
             }
             @Override
             public void onAuthenticationFailed() {
@@ -101,18 +102,17 @@ public class Admin extends AppCompatActivity {
         });
         // creating a variable for our promptInfo
         // BIOMETRIC DIALOG
-        final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("TechSphere docs")
-                .setDescription("Please enter your fingerpriint!").setNegativeButtonText("Cancel").build();
+        final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("TechSphere - DocLocker")
+                .setDescription("Use your fingerprint for access ").setNegativeButtonText("Cancel").build();
         btn_doc_locker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 biometricPrompt.authenticate(promptInfo);
-                Intent i = new Intent(getApplicationContext(),DocLock.class);
-                startActivity(i);
+
 
             }
         });
-
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
