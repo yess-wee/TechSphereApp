@@ -1,9 +1,11 @@
 package com.example.authtechsphere.dashboard;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,87 +18,73 @@ import java.util.List;
 
 public class cpiFragmentActivity extends AppCompatActivity {
 
-    private EditText[] gradeEditTexts;
-    private EditText[] creditEditTexts;
-    private TextView textViewCPI;
+    private EditText editTextSessional1, editTextSessional2, editTextSessional3,
+            editTextPracticalViva, editTextExpectedCPI;
+    private RadioButton radioButton100, radioButton150;
+    private TextView textViewResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpifragment);
 
-        gradeEditTexts = new EditText[]{
-                findViewById(R.id.g1),
-                findViewById(R.id.g2),
-                findViewById(R.id.g3),
-                findViewById(R.id.g4),
-                findViewById(R.id.g5),
-                findViewById(R.id.g6),
-        };
+        // Initialize UI elements
+        editTextSessional1 = findViewById(R.id.editTextSessional1);
+        editTextSessional2 = findViewById(R.id.editTextSessional2);
+        editTextSessional3 = findViewById(R.id.editTextSessional3);
+        editTextPracticalViva = findViewById(R.id.editTextPracticalViva);
+        editTextExpectedCPI = findViewById(R.id.editTextExpectedCPI);
+        radioButton100 = findViewById(R.id.radioButton100);
+        radioButton150 = findViewById(R.id.radioButton150);
+        textViewResult = findViewById(R.id.textViewResult);
 
-        creditEditTexts = new EditText[]{
-                findViewById(R.id.c1),
-                findViewById(R.id.c2),
-                findViewById(R.id.c3),
-                findViewById(R.id.c4),
-                findViewById(R.id.c5),
-                findViewById(R.id.c6),
-        };
-
-        Button buttonCalculate = findViewById(R.id.btn_calculate);
-        textViewCPI = findViewById(R.id.result);
-
-        buttonCalculate.setOnClickListener(new View.OnClickListener() {
+        // Set onClick listener for the Submit button
+        Button buttonSubmit = findViewById(R.id.buttonSubmit);
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateCPI();
+                calculateExternalMarks();
             }
         });
     }
 
-    private void calculateCPI() {
-        List<Double> grades = new ArrayList<>();
-        List<Integer> credits = new ArrayList<>();
+    // Function to calculate external marks based on user input
+    private void calculateExternalMarks() {
+        int sessional1 = Integer.parseInt(editTextSessional1.getText().toString());
+        int sessional2 = Integer.parseInt(editTextSessional2.getText().toString());
+        int sessional3 = Integer.parseInt(editTextSessional3.getText().toString());
+        int practicalViva = Integer.parseInt(editTextPracticalViva.getText().toString());
+        float expectedCPI = Float.parseFloat(editTextExpectedCPI.getText().toString());
+        int maxMarks = radioButton100.isChecked() ? 100 : 150; // Assuming maximum marks is selected by the user
 
+        // Total sessional marks
+        int totalSessionals = sessional1 + sessional2 + sessional3;
 
-        for (EditText editText : gradeEditTexts) {
-            String gradeText = editText.getText().toString().trim();
-            if (!gradeText.isEmpty()) {
-                double grade = Double.parseDouble(gradeText);
-                grades.add(grade);
-            }
-        }
+        // Calculate total marks based on sessionals
+        double totalMarks = ((totalSessionals / 36.0) * maxMarks);
 
-        for (EditText editText : creditEditTexts) {
-            String creditText = editText.getText().toString().trim();
-            if (!creditText.isEmpty()) {
-                int credit = Integer.parseInt(creditText);
-                credits.add(credit);
-            }
-        }
+        // Adjust the marks according to practical viva
+        double practicalVivaAdjustment = ((practicalViva / 50.0) * 10);
+        totalMarks += practicalVivaAdjustment;
 
+        // Adjust the marks according to expected CPI
+        double expectedCPIAdjustment = 0;
+        if (expectedCPI >= 8.0)
+            expectedCPIAdjustment = 10;
+        else if (expectedCPI >= 7.0)
+            expectedCPIAdjustment = 5;
+        totalMarks += expectedCPIAdjustment;
 
-        double cpi = calculateCPI(grades, credits);
+        // Apply the scaling factor to fit within the range of 0 to 60
+        double scaleFactor = 0.1181; // Maximum marks + practical viva + expected CPI
+        totalMarks *= scaleFactor;
 
-        textViewCPI.setVisibility(View.VISIBLE);
-        textViewCPI.setText(String.format("CPI: %.2f", cpi));
+        // Round the total marks to nearest integer
+        int externalMarks = (int) Math.round(totalMarks);
+
+        // Display the calculated external marks
+        textViewResult.setText("Total external marks out of 60: " + externalMarks);
     }
 
-    private double calculateCPI(List<Double> grades, List<Integer> credits) {
 
-        double totalGradeCredits = 0;
-        int totalCredits = 0;
-        int result = 0;
-
-        for (int i = 0; i < grades.size(); i++) {
-            totalGradeCredits += grades.get(i) * credits.get(i);
-            totalCredits += credits.get(i);
-            result = (int) (totalGradeCredits/totalCredits);
-        }
-
-        return result;
-    }
 }
-
-
-
