@@ -5,8 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     android:background="@drawable/bg_rounded_input_field"
-    android:backgroundTint="@color/black"
+    android:backgroundTint="@color/white"
     app:cardElevation="4dp"
+    app:cardCornerRadius="17dp"
     app:cardMaxElevation="8dp">
 
     <LinearLayout
@@ -43,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:text="User"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
             </LinearLayout>
