@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".dashboard.InstructActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".dashboard.fragment_settings">
+
+
+
+            <!-- TextView for "Privacy And Policy" -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="How to use?"
+                android:textColor="@color/orange"
+                android:textSize="30sp" />
+
+            <!-- Horizontal line after "Privacy And Policy" TextView -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"/>
+
+
+            <!-- Remaining content -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Academic Calander"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:text="In this module you can check the academic calander and holiday calander by simply clicing on a button."
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"
+                android:layout_marginBottom="20dp"/>
+
+
+            <!-- TextView for description -->
+
+            <!-- Remaining content -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="File Share Module"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:text="In this module, when you enter in the module you can see all the users of this application, after their name, there will be a SHARE FILE button, by clicking on that, you have a floating button on the right bottom, by hitting that button you can select your desired document to share.\n\nOn top right side, you will have 2 widgets, clicking on first widget, you will get all your recieved files with the user who have sent to you. Next widget is for getting the document to your device by enterinf the code which have been sended by the sender via sms."
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"
+                android:layout_marginBottom="20dp"/>
+
+
+            <!-- TextView for description -->
+
+            <!-- Remaining content -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cpi Predictor Module"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+
+                android:textColor="@color/black"
+                android:text="In this module, a student can predict how much marks they have to achieve in external exams if they want to get desiered cpi(which they have mentioned).\n\nFirst they have to enter their all three sessionals marks, after that they have to select total maximum marks by hitting radio button, after that they have to enter practical-viva total marks which they have gained, and at the end they have to enter desiered cpi - which can be integer or in float. At last, after clicking on SUBMIT button they will get needed external marks."
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"
+                android:layout_marginBottom="20dp"/>
+
+
+            <!-- TextView for description -->
+
+            <!-- Remaining content -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Schedular Module"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="18dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:text="In this module student can add add remarks of their work via adding details on a particular day of the calendar view.\n\nFirst we have to select the date, after that we have to click on WEEKLY button which is on the top of the screen, after that we will have the NEW EVENT button, by clicking on the button we can add remarks which we have to enter."
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/orange"
+                android:layout_marginBottom="20dp"/>
+
+
+        </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+

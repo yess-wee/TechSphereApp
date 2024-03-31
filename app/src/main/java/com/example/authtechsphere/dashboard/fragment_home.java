@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -66,6 +67,8 @@ public class fragment_home extends Fragment {
         Button btn_cpi = (Button) rootView.findViewById(R.id.btn_cpi);
         Button btn_att = (Button) rootView.findViewById(R.id.btn_att);
 
+        TextView tv_how = (TextView) rootView.findViewById(R.id.tv_how);
+
         btn_festive.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i  = new Intent(getActivity(), festiveFragmentActivity.class);
@@ -94,6 +97,19 @@ public class fragment_home extends Fragment {
             }
         });
 
+
+        tv_how.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchActivity();
+            }
+
+            public void launchActivity() {
+
+                Intent i = new Intent(getActivity(), InstructActivity.class);
+                startActivity(i);
+            }
+        });
         return rootView;
     }
 }

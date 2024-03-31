@@ -166,7 +166,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp">
+            android:layout_height="160dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -185,16 +185,16 @@
                     android:textSize="20sp" />
 
                 <Button
+                    android:id="@+id/btn_att"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="14dp"
                     android:layout_marginBottom="4dp"
-                    android:id="@+id/btn_att"
                     android:backgroundTint="#DC000000"
-                    android:textColor="@color/white"
-                    android:text="CHECK" />
+                    android:text="CHECK"
+                    android:textColor="@color/white" />
 
 
             </RelativeLayout>
@@ -208,7 +208,20 @@
                 android:layout_marginRight="-30dp"
                 android:layout_marginBottom="-90dp"
                 android:src="@drawable/att" />
+
+
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to use ? "
+            android:gravity="center"
+            android:layout_marginBottom="-3dp"
+            android:textColor="@color/orange"
+            android:clickable="true"
+            android:onClick="launchActivity"
+            android:id="@+id/tv_how"/>
 
     </LinearLayout>
 
