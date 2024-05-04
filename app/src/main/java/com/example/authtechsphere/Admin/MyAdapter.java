@@ -1,7 +1,3 @@
-// This is the adapter class for the recycler view
-// It is used to set the data to the recycler view
-
-// Importing the required packages
 package com.example.authtechsphere.Admin;
 
 import android.annotation.SuppressLint;
@@ -35,17 +31,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-// Creating a class for MyAdapter
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    // Declaring all the variables
     DownloadFiles downloadFiles;
     ArrayList<DownModel> downModels;
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
-
-    // Creating a constructor for the MyAdapter class
     public MyAdapter(DownloadFiles downloadFiles, ArrayList<DownModel> downModels) {
         this.downloadFiles = downloadFiles;
         this.downModels = downModels;
@@ -55,7 +47,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        // Setting the layout for the recycler view
         LayoutInflater layoutInflater = LayoutInflater.from(downloadFiles.getBaseContext());
         View view = layoutInflater.inflate(R.layout.elements, null, false);
 
@@ -66,11 +57,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, @SuppressLint("RecyclerView") final int i) {
 
-        // Setting the data to the recycler view
         myViewHolder.mName.setText(downModels.get(i).getName());
         myViewHolder.mLink.setText(downModels.get(i).getLink());
 
-        // Checking the file extension and setting the image accordingly
         if (downModels.get(i).getName().endsWith(".ai") ){
             myViewHolder.mImage.setImageResource(R.drawable.ai);
         } else if (downModels.get(i).getName().endsWith(".apk")) {
@@ -133,7 +122,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             myViewHolder.mImage.setImageResource(R.drawable.question);
         }
 
-        // Setting the click listener for the download button
         myViewHolder.mDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

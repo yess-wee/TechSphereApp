@@ -1,4 +1,3 @@
-// Importing the required libraries
 package com.example.authtechsphere.Admin;
 
 import android.content.Intent;
@@ -22,13 +21,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-// Creating a class for DownloadFiles
 public class DownloadFiles extends AppCompatActivity {
-
-    // Creating an object for FirebaseFirestore
     FirebaseFirestore db;
-
-    // Declaring all the variables
     RecyclerView mRecyclerView;
     ArrayList<DownModel> downModelArrayList = new ArrayList<>();
     MyAdapter myAdapter;
@@ -40,24 +34,18 @@ public class DownloadFiles extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download_files);
 
-        // Calling the methods to set up the RecyclerView and Firebase
         setUpRV();
         setUpFB();
 
-        // Calling the method to get the data from Firebase
         dataFromFirebase();
 
     }
-
-    // Creating a method to get the data from Firebase
     private void dataFromFirebase() {
 
-        // Checking if the ArrayList is empty or not
+
         if(downModelArrayList.size()>0)
             downModelArrayList.clear();
 
-        // Getting the data from Firebase
-        // If the data is retrieved successfully, then the data is added to the ArrayList
         db.collection(fAuth.getCurrentUser().getEmail())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -73,7 +61,6 @@ public class DownloadFiles extends AppCompatActivity {
 
                         }
 
-                        // Setting the adapter to the RecyclerView
                         myAdapter= new MyAdapter(DownloadFiles.this,downModelArrayList);
                         mRecyclerView.setAdapter(myAdapter);
                     }
@@ -89,19 +76,15 @@ public class DownloadFiles extends AppCompatActivity {
 
     }
 
-    // Creating a method to set up the Firebase
     private void setUpFB(){
         db=FirebaseFirestore.getInstance();
     }
 
-    // Creating a method to set up the RecyclerView
     private void setUpRV(){
         mRecyclerView= findViewById(R.id.recycle);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-
-    // Creating a method to go to the Downloads page
     public void goToDownloads(View view){
         startActivity(new Intent(getApplicationContext(),DocLock.class));
         finish();
