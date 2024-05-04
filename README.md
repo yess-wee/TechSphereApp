@@ -16,10 +16,9 @@ TechSphere is packed with powerful features that make it the ultimate educationa
 
 Experience TechSphere in action! Check out our live demo [https://drive.google.com/file/d/1UNfnsh55luZ-GD2VM_hXn8aYCbPr9thw/view?usp=drive_link]. This link provides a hands-on preview of TechSphere's capabilities and interface.
 
-## :bulb: Getting Started
+## :iphone: Published on Amazon Appstore
 
-To get started with TechSphere, please follow the instructions below:
+TechSphere is now available on the Amazon Appstore! Enhance your learning experience by downloading the app on your compatible devices. Our app is optimized for both tablets and smartphones, ensuring that you have access to your educational tools wherever you go.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/techsphere.git
+- Get it on Amazon: [https://www.amazon.com/dp/B0D382LDY9/ref=sr_1_4?crid=1LB4A388Z1ALA&dib=eyJ2IjoiMSJ9.sVKCr3B6_ZH6UeD0ZxhBZH0v0lopttyvNUyDAyUQvT1PKMMkzYE0E6Fl_lsnc_PMsKbkrT9zAaTGzO6BAC-czA.iwQs18jnnW6Y4L5uobtbsOquOp8gs8_bIkf5RFHGi6c&dib_tag=se&keywords=TechSphere&qid=1714790576&sprefix=tec%2Caps%2C2379&sr=8-4]
+
