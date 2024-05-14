@@ -12,70 +12,68 @@
         android:padding="30dp"
         android:layout_marginTop="50dp">
 
-        <TextView
-            android:id="@+id/textViewSessional1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:text="Sessional 1 (out of 36):"/>
 
-        <EditText
-            android:id="@+id/editTextSessional1"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/textViewSessional1"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:layout_toEndOf="@+id/textViewSessional1"
-            android:inputType="number" />
+            android:hint="Sessional 1 (out of 36):"
+            android:textColorHint="@color/black"
+            android:id="@+id/textViewSessional1">
 
-        <TextView
-            android:id="@+id/textViewSessional2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editTextSessional1"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:text="Sessional 2 (out of 36):"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextSessional1"
+                android:inputType="number"
+                android:textColor="@color/black"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextSessional2"
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/textViewSessional2"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:layout_toEndOf="@+id/textViewSessional2"
-            android:inputType="number" />
+            android:hint="Sessional 2 (out of 36):"
+            android:textColorHint="@color/black"
+            android:layout_below="@id/textViewSessional1"
+            android:id="@+id/textViewSessional2">
 
-        <TextView
-            android:id="@+id/textViewSessional3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editTextSessional2"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:text="Sessional 3 (out of 36):"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:id="@+id/editTextSessional2"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextSessional3"
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/textViewSessional3"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:layout_toEndOf="@+id/textViewSessional3"
-            android:inputType="number" />
+            android:hint="Sessional 3 (out of 36):"
+            android:textColorHint="@color/black"
+            android:layout_below="@id/textViewSessional2"
+            android:id="@+id/textViewSessional3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:id="@+id/editTextSessional3"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <RadioButton
             android:id="@+id/radioButton100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextSessional3"
+            android:layout_below="@id/textViewSessional3"
             android:text="Maximum Marks: 100"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"/>
@@ -89,47 +87,50 @@
             android:textColor="@color/black"
             android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewPracticalViva"
-            android:layout_width="wrap_content"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:hint="Practical Viva Marks (out of 50):"
             android:layout_below="@id/radioButton150"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:text="Practical Viva Marks (out of 50):"/>
+            android:id="@+id/textViewPracticalViva">
 
-        <EditText
-            android:id="@+id/editTextPracticalViva"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:id="@+id/editTextPracticalViva"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:hint="Expected CPI (float):"
             android:layout_below="@id/textViewPracticalViva"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"/>
+            android:id="@+id/textViewExpectedCPI">
 
-        <TextView
-            android:id="@+id/textViewExpectedCPI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editTextPracticalViva"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:text="Expected CPI (float):"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:id="@+id/editTextExpectedCPI"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextExpectedCPI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewExpectedCPI"
-            android:inputType="numberDecimal"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"/>
+
 
         <Button
             android:id="@+id/buttonSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextExpectedCPI"
+            android:layout_below="@id/textViewExpectedCPI"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@color/orange"
             android:text="Submit"
@@ -149,7 +150,6 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20sp" />
-
 
     </RelativeLayout>
 

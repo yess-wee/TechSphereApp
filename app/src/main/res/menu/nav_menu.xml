@@ -7,17 +7,19 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-
+            android:icon="@drawable/home_icon"
             android:title="Home"/>
         <item
             android:id="@+id/nav_privacy"
-
+            android:icon="@drawable/privacy_icon"
             android:title="Privacy Policy"/>
         <item
             android:id="@+id/nav_support"
+            android:icon="@drawable/policy_icon"
             android:title="Support"/>
         <item
             android:id="@+id/nav_about"
+            android:icon="@drawable/info_icon"
             android:title="About Us"/>
     </group>
     <item
@@ -25,7 +27,10 @@
         <menu>
             <item
                 android:id="@+id/nav_logout"
+                android:icon="@drawable/logout_icon"
                 android:title="Logout"/>
         </menu>
+
     </item>
+
 </menu>

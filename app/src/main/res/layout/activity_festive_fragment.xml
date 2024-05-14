@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:text="Academic Calander"
             android:textColor="@color/white"
-
+            style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="#E65100"
