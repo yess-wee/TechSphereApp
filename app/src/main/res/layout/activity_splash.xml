@@ -7,6 +7,13 @@
     android:background="@color/white"
     tools:context=".SplashActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_lit"
+        android:id="@+id/splash_background"
+        android:scaleType="fitXY"/>
+
     <TextView
         android:id="@+id/appname"
         android:layout_width="wrap_content"
