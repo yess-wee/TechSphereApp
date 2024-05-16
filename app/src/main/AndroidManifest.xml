@@ -23,6 +23,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AuthTechSphere"
         tools:targetApi="31">
+
+        <activity android:name=".UserProfile"
+            android:exported="false"/>
+
         <activity
             android:name=".open_pdf_ac_cal"
             android:exported="false" />

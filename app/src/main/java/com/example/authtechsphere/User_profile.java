@@ -1,40 +1,29 @@
 package com.example.authtechsphere;
 
-import static android.content.ContentValues.TAG;
-
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link user_profile#newInstance} factory method to
+ * Use the {@link User_profile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class user_profile extends Fragment {
+public class User_profile extends Fragment {
 
     private TextView profileName, profileEmail, profilePhone, profilePwd;
     private TextView titleName, titleUsername;
@@ -63,7 +52,7 @@ public class user_profile extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public user_profile() {
+    public User_profile() {
         // Required empty public constructor
     }
 
@@ -76,8 +65,8 @@ public class user_profile extends Fragment {
      * @return A new instance of fragment user_profile.
      */
     // TODO: Rename and change types and number of parameters
-    public static user_profile newInstance(String param1, String param2) {
-        user_profile fragment = new user_profile();
+    public static User_profile newInstance(String param1, String param2) {
+        User_profile fragment = new User_profile();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

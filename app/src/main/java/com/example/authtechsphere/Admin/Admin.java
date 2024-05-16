@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,15 +15,16 @@ import android.widget.Toast;
 
 
 import com.example.authtechsphere.LoginActivity;
-import com.example.authtechsphere.MainActivity;
 import com.example.authtechsphere.R;
+import com.example.authtechsphere.User_profile;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.concurrent.Executor;
 
 public class Admin extends AppCompatActivity {
 
-    Button btnLogout,btn_doc_locker,btn_doc_share;
+    Button btnLogout,btn_doc_locker,btn_doc_share,profile_btn;
 
     FirebaseAuth fAuth;
 
@@ -37,6 +38,7 @@ public class Admin extends AppCompatActivity {
         btnLogout = findViewById(R.id.btn_logout);
         btn_doc_locker = findViewById(R.id.btn_doc_locker);
         btn_doc_share = findViewById(R.id.btn_docsh);
+        profile_btn = findViewById(R.id.profile_btn);
 
         btn_doc_share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +127,22 @@ public class Admin extends AppCompatActivity {
 
 
             }
+
         });
 
+
+        profile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i = new Intent(Admin.this, User_profile.class);
+//                startActivity(i);
+
+                User_profile userProfileFragment = new User_profile();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, userProfileFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 }
