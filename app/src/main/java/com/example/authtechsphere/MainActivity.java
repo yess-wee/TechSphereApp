@@ -66,7 +66,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_about()).commit();
         }
 
-        else if(id == R.id.nav_logout){
+        else if (id == R.id.profile) {
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new user_profile()).commit();
+
+        } else if(id == R.id.nav_logout){
             Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
 
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
