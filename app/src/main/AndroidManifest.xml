@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yash.authtechsphere">
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -24,7 +25,7 @@
         android:theme="@style/Theme.AuthTechSphere"
         tools:targetApi="31">
 
-        <activity android:name=".UserProfile"
+        <activity android:name=".User_profile"
             android:exported="false"/>
 
         <activity
