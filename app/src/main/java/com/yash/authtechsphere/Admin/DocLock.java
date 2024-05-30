@@ -127,11 +127,14 @@ public class DocLock extends AppCompatActivity implements View.OnClickListener {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             filePath = data.getData();
 
-            retrieveFileName = data.getData().getLastPathSegment().toLowerCase();
+            //retrieveFileName = data.getData().getLastPathSegment().toLowerCase();
+            String pathSegment = filePath.getLastPathSegment();
+            if (pathSegment != null) {
+                retrieveFileName = pathSegment.toLowerCase();
+            }
 
 
-
-            if (retrieveFileName.contains("image")) {
+            if (retrieveFileName != null && retrieveFileName.contains("image")) {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                     imageView.setImageBitmap(bitmap);
@@ -139,112 +142,115 @@ public class DocLock extends AppCompatActivity implements View.OnClickListener {
                     e.printStackTrace();
                 }
 
-            } else if (retrieveFileName.contains(".ai")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.ai);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".apk")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.apk);
-                imageView.setImageDrawable(myDrawable);
+            } else if(retrieveFileName != null) {
 
-            } else if (retrieveFileName.contains(".avi")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.avi);
-                imageView.setImageDrawable(myDrawable);
+                if (retrieveFileName.contains(".ai")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.ai);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".apk")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.apk);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".css")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.css);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".avi")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.avi);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".csv")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.csv);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".css")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.css);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".dbf")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.dbf);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".csv")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.csv);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".doc")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.doc);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".dbf")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.dbf);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".exe")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.exe);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".doc")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.doc);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".fla")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.fla);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".exe")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.exe);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".gif")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.gif);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".fla")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.fla);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".htm")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.html);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".gif")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.gif);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".html")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.html);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".htm")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.html);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".jpg")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.jpg);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".html")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.html);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".json")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.jsn);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".jpg")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.jpg);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".htm")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.html);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".json")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.jsn);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".mp3")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.mp3);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".htm")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.html);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".mp4")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.mp4);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".mp3")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.mp3);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".ods")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.ods);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".mp4")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.mp4);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".odt")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.odt);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".ods")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.ods);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".pdf")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.pdf);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".png")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.png);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".odt")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.odt);
+                    imageView.setImageDrawable(myDrawable);
 
-            } else if (retrieveFileName.contains(".ppt")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.ppt);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".pptx")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.ppt);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".svg")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.svg);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".txt")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.txt);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".xls")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.xls);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".xlsx")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.xls);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".xml")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.xml);
-                imageView.setImageDrawable(myDrawable);
-            } else if (retrieveFileName.contains(".zip")) {
-                Drawable myDrawable = getResources().getDrawable(R.drawable.zip);
-                imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".pdf")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.pdf);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".png")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.png);
+                    imageView.setImageDrawable(myDrawable);
+
+                } else if (retrieveFileName.contains(".ppt")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.ppt);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".pptx")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.ppt);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".svg")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.svg);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".txt")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.txt);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".xls")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.xls);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".xlsx")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.xls);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".xml")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.xml);
+                    imageView.setImageDrawable(myDrawable);
+                } else if (retrieveFileName.contains(".zip")) {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.zip);
+                    imageView.setImageDrawable(myDrawable);
+                }
             }
         } else {
             Drawable myDrawable = getResources().getDrawable(R.drawable.question);
