@@ -3,14 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yash.authtechsphere">
 
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -25,77 +20,35 @@
         android:theme="@style/Theme.AuthTechSphere"
         tools:targetApi="31">
 
-        <activity android:name=".User_profile"
-            android:exported="false"/>
+        <activity android:name=".User_profile" android:exported="false"
+            tools:ignore="Instantiatable" />
 
-        <activity
-            android:name=".open_pdf_ac_cal"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.InstructActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+        <activity android:name=".open_pdf_ac_cal" android:exported="false" />
+        <activity android:name=".dashboard.InstructActivity" android:exported="false" />
+        <activity android:name=".SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            <meta-data android:name="android.app.lib_name" android:value="" />
         </activity>
-        <activity
-            android:name=".Admin.DownloadFiles"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.DocLock"
-            android:exported="false" />
-        <activity
-            android:name=".ShowAllReceivedFiles"
-            android:exported="false" />
-        <activity
-            android:name=".PdfViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ShareFile"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.DocShare"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Admin"
-            android:exported="false" />
-        <activity
-            android:name=".RegistrationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.attFragmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.cpiFragmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.timetableFragmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".dashboard.festiveFragmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Admin.DownloadFiles" android:exported="false" />
+        <activity android:name=".Admin.DocLock" android:exported="false" />
+        <activity android:name=".ShowAllReceivedFiles" android:exported="false" />
+        <activity android:name=".PdfViewActivity" android:exported="false" />
+        <activity android:name=".ShareFile" android:exported="false" />
+        <activity android:name=".Admin.DocShare" android:exported="false" />
+        <activity android:name=".Admin.Admin" android:exported="false" />
+        <activity android:name=".RegistrationActivity" android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".dashboard.attFragmentActivity" android:exported="false" />
+        <activity android:name=".dashboard.cpiFragmentActivity" android:exported="false" />
+        <activity android:name=".dashboard.festiveFragmentActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".dashboard.EventEditActivity" />
         <activity android:name=".dashboard.WeekViewActivity" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

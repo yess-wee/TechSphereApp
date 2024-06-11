@@ -28,7 +28,7 @@
             android:layout_toRightOf="@id/cv_profileImage"
             android:padding="8dp"
             android:textColorHint="@color/white"
-            android:text="DataFlair File shared"
+            android:text="TechSphere File shared"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
