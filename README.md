@@ -22,3 +22,24 @@ TechSphere is now available on the Amazon Appstore! Enhance your learning experi
 
 - Get it on Amazon: [https://www.amazon.com/dp/B0D382LDY9/ref=sr_1_4?crid=1LB4A388Z1ALA&dib=eyJ2IjoiMSJ9.sVKCr3B6_ZH6UeD0ZxhBZH0v0lopttyvNUyDAyUQvT1PKMMkzYE0E6Fl_lsnc_PMsKbkrT9zAaTGzO6BAC-czA.iwQs18jnnW6Y4L5uobtbsOquOp8gs8_bIkf5RFHGi6c&dib_tag=se&keywords=TechSphere&qid=1714790576&sprefix=tec%2Caps%2C2379&sr=8-4]
 
+
+## :iphone: Published on Google Play Store
+
+TechSphere is now available on the Google Play Store! Enhance your tech experience by downloading the app on your compatible devices. This app is optimized for both tablets and smartphones.
+
+- Get it on Google Play: https://play.google.com/store/apps/details?id=com.yash.authtechsphere&pcampaignid=web_share
+
+## Getting Started
+1. Download the app from the https://play.google.com/store/apps/details?id=com.yash.authtechsphere&pcampaignid=web_share
+2. Install the app on your Android device.
+3. Open the app and enjoy the latest tech news and insights.
+
+## Requirements
+- Android version 5.0 (Lollipop) or higher
+- Internet connection
+
+## Feedback
+I would love to hear your thoughts! If you have any feedback, suggestions, or issues, please reach out to me at yashvichauhan83@gmail.com
+
+## Contributing
+I welcome contributions to improve TechSphere. Please fork the repository and submit pull requests.
